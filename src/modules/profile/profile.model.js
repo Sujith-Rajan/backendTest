@@ -4,6 +4,7 @@ const customerSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
         email: { type: String, required: true, unique: true },
+        age: { type: Number },
         phone: { type: String },
         status: {
             type: String,
@@ -15,4 +16,4 @@ const customerSchema = new mongoose.Schema(
 );
 
 const CustomerModel = mongoose.model("CustomerModel", customerSchema, "customerCollection");
-export default CustomerModel
+export default CustomerModel;

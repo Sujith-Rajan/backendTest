@@ -7,6 +7,6 @@ export const customerMiddleWare = express.Router();
 
 customerMiddleWare
     .post("/", (req, res) => profileController.createCustomer(req, res))
-    // .get("/", profileController)
+    .get("/", (req, res) => profileController.getCustomer(req, res))
     .put("/", (req, res) => profileController.updateCustomer(req, res));
 // .delete("/", profileController);
