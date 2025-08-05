@@ -36,4 +36,9 @@ export class ProfileService {
         const res = await profileRepo.getCustomer(filtter);
         return res;
     }
+
+    async getCustomerById(params) {
+        const res = await profileRepo.getCustomerById(params.id);
+        return res;
+    }
 }
