@@ -36,4 +36,12 @@ export class ProfileController {
             });
         }
     }
+
+    async getCustomer(req,res) {
+        const result = await profileService.getCustomer(req.query)
+        return res.json({
+            success:result.status,
+            result:result
+        })
+    }
 }
