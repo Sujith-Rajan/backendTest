@@ -65,7 +65,6 @@ export class ProfileRepository {
                         {
                             $limit: parseInt(query.limit),
                         },
-                      
                     ],
                     count: [
                         {
@@ -76,5 +75,15 @@ export class ProfileRepository {
             },
         ]);
         return customer[0];
+    }
+
+    async getCustomerById(id) {
+        try {
+            const customer = await CustomerModel.findById(id);
+            if (!customer) throw new Error("No User");
+            return customer;
+        } catch (err) {
+            throw new Error(err);
+        }
     }
 }

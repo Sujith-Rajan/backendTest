@@ -29,7 +29,7 @@ export class ProfileController {
                 data: result,
             });
         } catch (err) {
-            console.log(err)
+            console.log(err);
             res.status(400).json({
                 success: false,
                 message: err.message || "Update failed",
@@ -37,11 +37,24 @@ export class ProfileController {
         }
     }
 
-    async getCustomer(req,res) {
-        const result = await profileService.getCustomer(req.query)
+    async getCustomer(req, res) {
+        const result = await profileService.getCustomer(req.query);
         return res.json({
-            success:result.status,
-            result:result
-        })
+            success: result.status,
+            result: result,
+        });
+    }
+
+    async getCustomerById(req, res) {
+        try {
+            const result = await profileService.getCustomerById(req.params);
+            return res.json({
+                success: true,
+                result: result,
+            });
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Server error' });
+        }
     }
 }
